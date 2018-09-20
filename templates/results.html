@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<header>
+    <title>Flask Demo App</title>
+</header>
+<!--wanted to put it in a table for formatting, will worry about it later, want to get basic functionality down-->
+    <body>
+                {% for dict_item in theDict %}
+                {% for key, value in dict_item.items() %}
+                   <h1>User input: {{key}}</h1>
+                   <h2>The "the" count: {{value}}</h2>
+                {% endfor %}
+             {% endfor %}
+    </body>
+    <a href="index.html">Add more text</a>
+</html>

@@ -10,13 +10,18 @@ app.config['DEBUG'] = True
 def indexGet(): #TIME TO TEST!!!
     return render_template("index.html")
 
+# needs to be global
+theDict = {}
 @app.route("/", methods=['POST'])
 def indexPost():
     usertext = request.form['userText']
-
-    # maybe break usertext into a list and then check that?
-    alist = []
-    thecount = usertext.count("the")
-
-    return render_template("index.html", thecount=thecount) #TEST NUMBAH 8(??)!!
+    for each in usertext:
+        thecount = usertext.count("the")
+        theDict[each] = thecount
+    # so after user enters input
+    return redirect("/results")
+# go here
+@app.route("/results", methods=['GET'])
+def results():
+    return render_template("results.html", theDict=theDict) 
 app.run()
