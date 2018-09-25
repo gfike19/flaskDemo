@@ -15,10 +15,9 @@ theDict = {}
 @app.route("/", methods=['POST'])
 def indexPost():
     usertext = request.form['userText']
-    for each in usertext:
-        thecount = usertext.count("the")
-        theDict[each] = thecount
-    # so after user enters input
+    # maybe i don't need a loop at all
+    thecount = usertext.count("the")
+    theDict[usertext] = thecount
     return redirect("/results")
 # go here
 @app.route("/results", methods=['GET'])

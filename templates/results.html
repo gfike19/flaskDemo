@@ -2,14 +2,21 @@
 <header>
     <title>Flask Demo App</title>
 </header>
-<!--wanted to put it in a table for formatting, will worry about it later, want to get basic functionality down-->
-    <body>
-                {% for dict_item in theDict %}
-                {% for key, value in dict_item.items() %}
+    <body> <!-- putting working code aside -->
+                <!-- {% for key, value in theDict.items() %}
                    <h1>User input: {{key}}</h1>
                    <h2>The "the" count: {{value}}</h2>
-                {% endfor %}
-             {% endfor %}
+                {% endfor %} -->
+        <table>
+            <tr>
+                <td><b>User Input</b></td> <td><b>The "the" count</b></td>
+            </tr>
+            {% for key, value in theDict.items() %}
+            <tr>
+                <td>{{key}}</td><td>{{value}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
-    <a href="index.html">Add more text</a>
+    <a href="/">Add more text</a>
 </html>
